@@ -392,7 +392,7 @@
 			// If the auto scrolling is not started in $(window).load, it won't start because it 
 			// will interpret the scrollable areas as too short.
 			$(window).load(function () {
-
+				debugger;
 				// If scroller is not hidden, recalculate the scrollable area
 				if (!(o.hiddenOnStart)) {
 					self.recalculateScrollableArea();
@@ -900,6 +900,7 @@
 		source that you want, for example ".myClass" or "#thisDiv" or "div" - string
 		*/
 		getAjaxContent: function (content, manipulationMethod, filterTag) {
+			debugger;
 			var self = this, el = this.element;
 			$.ajaxSetup({ cache: false });
 
@@ -1243,11 +1244,6 @@
 		enable: function () {
 			var el = this.element;
 
-			// Enable touch scrolling
-			if (this.options.touchScrolling) {
-				el.data("scrollWrapper").kinetic('attach');
-			}
-
 			// Set enabled to true
 			el.data("enabled", true);
 		},
@@ -1259,11 +1255,6 @@
 			clearInterval(el.data("rightScrollingInterval"));
 			clearInterval(el.data("leftScrollingInterval"));
 			clearInterval(el.data("hideHotSpotBackgroundsInterval"));
-
-			// Disable touch scrolling
-			if (this.options.touchScrolling) {
-				el.data("scrollWrapper").kinetic('detach');
-			}
 
 			// Set enabled to false
 			el.data("enabled", false);
